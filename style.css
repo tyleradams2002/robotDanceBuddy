@@ -1,0 +1,225 @@
+img {
+	scale: 0.05;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+.robots {
+	display: flex;
+	justify-content: center;
+}
+
+.android {
+	position: relative;
+}
+
+.head, 
+.left_arm, 
+.torso, 
+.right_arm, 
+.left_leg, 
+.right_leg {
+	 background-color: #5f93e8;
+}
+
+.head { 
+	width: 200px; 
+	margin: 0 auto; 
+	height: 150px; 
+	border-radius: 200px 200px 0 0; 
+	margin-bottom: 10px;
+	justify-content: center;
+	align-items: center;
+} 
+
+.eyes {
+	
+}
+
+.head:hover {
+	width: 300px;
+    transition: 1s ease-in-out;
+}
+
+.upper_body { 
+	width: 300px; 
+	height: 150px;
+	display: flex;
+	position: relative;
+	z-index: 2;
+} 
+
+.left_arm, .right_arm { 
+	width: 40px; 
+	height: 125px;
+	border-radius: 100px;
+} 
+
+.left_arm { 
+	margin-right: 10px; 
+}
+
+.right_arm { 
+	margin-left: 10px; 
+}
+
+.torso { 
+	width: 200px; 
+	height: 200px;
+	border-radius: 0 0 50px 50px;
+	display: flex;
+} 
+
+.lower_body { 
+	width: 200px; 
+	height: 200px;
+	/* This is another useful property. Hmm what do you think it does?*/
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+	z-index: 1;
+
+} 
+
+.left_leg, .right_leg {
+	width: 40px; 
+	height: 120px;
+	border-radius: 0 0 100px 100px; 
+} 
+
+.left_leg { 
+	margin-left: 45px; 
+} 
+
+.left_leg:hover {
+	-webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+
+.right_leg:hover {
+	transform: rotate(-20deg);
+}
+
+.right_leg { 
+	margin-left: 30px; 
+}
+
+.left_eye, .right_eye { 
+	width: 20px; 
+	height: 20px; 
+	border-radius: 15px; 
+	background-color: white;  
+} 
+
+.left_eye { 
+	/* These properties are new and you haven't encountered
+	in this course. Check out CSS Tricks to see what it does! */
+	position: relative; 
+	top: 100px; 
+	left: 40px; 
+} 
+
+.right_eye { 
+	position: relative; 
+	top: 100px; 
+	left: 120px; 
+}
+
+.heart-shape{
+	position: relative;
+	scale: 0.2;
+	width: 200px;
+	height: 200px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	background-color: rgba(255,0,0, 1);
+}
+.heart-shape:before,
+.heart-shape:after{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	content: '';
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	background-color: rgba(255,0,0, 1);
+}
+.heart-shape:before{
+	bottom: 0px;
+	left: -100px;
+}
+.heart-shape:after{
+	top: -100px;
+	right: 0px;
+}
+
+@keyframes bodyRoll {
+		0% {background-color: #5f93e8;}
+		25% {background-color: orange; border-radius: 25px;}
+		50% {background-color: red;; border-radius: 50px;}
+		75% {background-color: pink; border-radius: 25px;}
+		100% {background-color: yellow;}
+}
+
+@keyframes heartRoll {
+	0% {background-color: orange;}
+	25% {background-color: #5f93e8;}
+	50% {background-color: green;}
+	75% {background-color: greenyellow;}
+	100% {background-color: purple;}
+}
+
+@keyframes headsUp {
+	0% {transform: translateY(0)}
+	50% {transform: translateY(-25px)}
+	100% {transform: translateY(0)}
+}
+
+@keyframes armManLeft {
+	0% {transform: rotate(0)}
+	25% {transform: rotate(45deg) translateX(-40px)}
+	50% {transform: rotate(135deg) translateX(-40px)}
+	75% {transform: rotate(45deg) translateX(-40px)}
+	100% {transform: rotate(0)}
+}
+
+@keyframes armManRight {
+	0% {transform: rotate(0)}
+	25% {transform: rotate(-45deg)}
+	50% {transform: rotate(-135deg)}
+	75% {transform: rotate(-45deg)}
+	100% {transform: rotate(0)}
+}
+
+.android:hover > .upper_body > .torso{
+	animation: bodyRoll 5s infinite;
+}
+
+.android:hover .heart-shape,
+.android:hover .heart-shape:before,
+.android:hover .heart-shape:after {
+	animation: heartRoll 5s infinite;
+}
+
+.android:hover > .head {
+	animation: headsUp 0.5s infinite;
+}
+
+.android:hover > .upper_body > .left_arm {
+	animation: armManLeft 1s infinite;
+}
+
+.android:hover > .upper_body > .right_arm {
+	animation: armManRight 1s infinite;
+}
